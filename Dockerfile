@@ -15,8 +15,7 @@ RUN pip install --upgrade pip setuptools
 RUN pip install secp256k1==0.13.2
 
 WORKDIR /hydrachain
-# Reset potentially dirty directory and remove after install
-RUN git reset --hard && pip install . && cd .. && rm -rf /hydrachain
+RUN pip install . && cd .. && rm -rf /hydrachain
 WORKDIR /
 
 ENTRYPOINT ["/usr/local/bin/hydrachain"]
